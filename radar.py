@@ -9,7 +9,7 @@ import plotly.io as pio
 import settings
 
 
-def plot():
+def plot(value):
     categories = ['Speed', 'Shooting', 'Passing',
                   'Dribbling', 'Defending', 'Physicality']
     categories = [*categories, categories[0]]
@@ -25,18 +25,19 @@ def plot():
     playerOutline.append(int(settings.currentPlayer.get("physic")))
     playerOutline = [*playerOutline, playerOutline[0]]
     settings.currentPlayerOutline = playerOutline
+    playerOutline.pop(0)
 
     fig = go.Figure(
         data=[
             go.Scatterpolar(r=playerOutline,
-                            fill='toself', name=settings.currentPlayer.get('short_name'), theta=categories, )  # Display the relevant player name
+                            fill='toself', name=(settings.currentPlayer.get('short_name')), theta=categories)  # Display the relevant player name
         ],
         layout=go.Layout(
             # Display the relevant player name
             title=go.layout.Title(
-                text=settings.currentPlayer.get('short_name')),
+                text=(settings.currentPlayer.get('short_name') + ' - Recommended Market Value: €' + str("{:,}".format((int(value)))))),
             showlegend=True,
-            plot_bgcolor='#000000',
+            plot_bgcolor='#000000', 
             template='plotly_dark',
         )
     )

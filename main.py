@@ -1,5 +1,5 @@
 #!/bin/env python
-# Messi isn't in the csv for some reason. Needs to be added. 
+from predictor import predictValue
 from search import search
 from radar import plot
 from similar import similarPlayers
@@ -7,7 +7,7 @@ import settings
 
 def main():
     search()
-    plot()
+    plot(predictValue(settings.currentPlayer.get('short_name')))
     similarPlayers()
 
 

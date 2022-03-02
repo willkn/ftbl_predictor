@@ -36,6 +36,7 @@ def executeQuery(queryResult):
             # if (enchant.utils.levenshtein(query, row[3]))
             if(queryResult == (row[2]).lower()):
                 settings.currentPlayer = dict(zip(attributes, row))
+                print(settings.currentPlayer)
                 break # If there is more than one of this player returned in the search, return the highest rated. 
     else:  # This code may need to be updated to be able to support multiple filters.
         x = list(queryResult.values())

@@ -1,0 +1,41 @@
+EDA
+
+top 5 most valuable players
+mbappe
+haaland
+neymar
+salah
+kdb
+
+top 5 rated players
+messi
+lewandowski
+mbappe
+salah
+kdb
+
+age
+count = 17779
+mean = 22.2
+std = 4
+min = 16
+max = 45
+
+height
+count = 17779
+mean = 180.6
+std = 6.7
+min = 155.0
+max = 211.0
+
+weight
+count = 17779
+mean = 74.0
+std = 6.9
+min = 50.0
+max = 110.0
+
+Building a model
+
+1. Splitting the data frame into relevant stats and the target values. 
+ 
