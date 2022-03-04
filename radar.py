@@ -35,7 +35,7 @@ def plot(value):
         layout=go.Layout(
             # Display the relevant player name
             title=go.layout.Title(
-                text=(settings.currentPlayer.get('short_name') + ' - Recommended Market Value: €' + str("{:,}".format((int(value)))))),
+                text=(settings.currentPlayer.get('short_name') + ' - Recommended Market Value: €' + str("{:,}".format((int(abs(value))))))),
             showlegend=True,
             plot_bgcolor='#000000', 
             template='plotly_dark',
