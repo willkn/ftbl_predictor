@@ -4,11 +4,12 @@ import pandas as pd
 from sklearn import linear_model
 import csv
 
-df = pd.read_csv("players.csv")
-
 
 def predictValue(name):
-    X = df[['overall', 'age', 'potential', 'international_reputation', 'league_level', 'release_clause_eur', 'club_contract_valid_until']]
+    df = pd.read_csv("players.csv")
+
+    X = df[['overall', 'age', 'potential', 'international_reputation',
+            'league_level', 'release_clause_eur', 'club_contract_valid_until']]
     y = df['value_eur']
 
     regr = linear_model.LinearRegression()
@@ -22,8 +23,9 @@ def predictValue(name):
 
     for row in playersLocal:
         if(row[2] == name):
-            playerValues = [row[5], row[9], row[6], row[30], row[16], row[34], row[21]] 
-            break 
+            playerValues = [row[5], row[9], row[6],
+                            row[30], row[16], row[34], row[21]]
+            break
 
     predictedValue = regr.predict([playerValues])
     return int(predictedValue)
